@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: student-note-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: student-note-service
+  template:
+    metadata:
+      labels:
+        app: student-note-service
+    spec:
+      containers:
+        - name: student-note-service
+          image: tkhan10/student-service
+          ports:
+            - containerPort: 8099
